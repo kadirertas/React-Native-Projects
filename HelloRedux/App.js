@@ -1,74 +1,57 @@
-import React, { useDebugValue } from "react";
-import {SafeAreaView, View, Text ,Button} from "react-native";
+import React from "react";
+import { SafeAreaView, Text, View, Button } from "react-native";
 import { createStore } from "redux";
-import { Provider , UseSelector ,UseDispatch, useSelector, useDispatch } from "react-redux";
-const InitialState = 
-{
-  counter: 1,
-}
+import { Provider, useSelector, useDispatch } from "react-redux";
+const initialState =  {   counter : 0 ,     }
 
-function reducers ( state  ,action )
+
+function reducers ( state , action )
 {
   switch (action.type) {
-    case 'UPDATE_COUNTER':
-      return{... state ,counter: state.counter+1 };
-      
+    case 'UPDATE_VALUE':
+      return{...state , counter: state.counter+1};
   
     default:
-      return state; 
-      
+      return state;
   }
 }
-
-function App () 
+export default App = () => 
 {
   return(
-    
-         <Provider  store={createStore(reducers, InitialState)}>
-    <SafeAreaView style={{flex:1}}>
-
-      <First />
-      <Second/>     
+    <Provider store={createStore(reducers, initialState)}>
+    <SafeAreaView style ={{flex: 1 , }}>
+       <First/>
+       <Second/>
     </SafeAreaView>
     </Provider>
   ); 
 }
-export default App; 
-function First () 
-{
 
-  const counter = useSelector(selector => selector.counter); 
-  const dispacth = useDispatch(); 
 
-  const handleUpdate =( ) =>{
-    dispacth({type: 'UPDATE_COUNTER'})
-  } 
-  return(
-    
- <View style= {{flex:1, backgroundColor: '#eceff1'}}>
-    <Text style={{color: 'black', fontSize:35, margin:50, fontWeight:'bold'}}>
-      First: {counter}
-    </Text>
-    <View style={{marginLeft: 120, width: 150 , height: 50 }}>
+function First () { 
+  const counter = useSelector (selector => selector.counter); 
+  const dispatch = useDispatch(); 
+
+   const handleUpdate = () =>
+   {
+    dispatch({type: 'UPDATE_VALUE'});
+   }
+  return (
+    <View style ={{flex: 1 , backgroundColor :'#eceff1'}}>
+      <Text style ={{margin: 50,color: 'black', fontSize:25,fontWeight :'bold' }}>First:{counter} </Text>
+      <View style={{marginLeft: 120, width: 150 , height: 50 }}>
          <Button color={'orange'} title="Update Number" onPress={ handleUpdate}/>
     </View>
- 
- </View>
-  ); 
-  }
-  function Second () 
-{
-
-  const counter = useSelector(selector => selector.counter);
-  return(
-    
-
-    <View style= {{flex:1, backgroundColor: 'green'}}>
-      <Text style={{color: 'black',fontSize:35, margin:50, fontWeight:'bold'}}>
-         Second: {counter}
+    </View>
+  )
+}
+function Second () { 
+  const counter = useSelector (selector => selector.counter); 
+  return (
+    <View style ={{flex: 1 , backgroundColor :'green'}}>
+      <Text style ={{margin: 50, color: 'black', fontSize:25,fontWeight :'bold' }}>
+        Second: {counter}
       </Text>
-   </View>
-  ); 
-
-
-  }
+    </View>
+  )
+}
