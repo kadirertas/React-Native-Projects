@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/ANDALAS.ttf",
+      "sha1": "2ea1191ad8519a7ffff2d7fb2bae6134f23047b6"
+    },
+    {
+      "path": "src/assets/fonts/mytype.ttf",
+      "sha1": "0133f73bf58974b585c66d3492da170e55c02c98"
+    },
+    {
+      "path": "src/assets/fonts/orange juice 2.0.ttf",
+      "sha1": "60225dfc30cd1de09477b373cad92f02e12c7a65"
+    },
+    {
+      "path": "src/assets/fonts/Reglarik.ttf",
+      "sha1": "8fe4b69dd9a70ae2985701604cead55d4a61e4a5"
+    }
+  ]
+}
